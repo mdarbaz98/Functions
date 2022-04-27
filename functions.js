@@ -14,3 +14,9 @@ function scrollSmoothTo(elementId) {
         user.innerHTML= Math.floor((Math.random()*100)+1)
         console.log(user)
  }, 1000);
+
+// owl carousel for Category pills of bootstrap
+$('.categoryBtn').click(function () {
+        $('.categoryBtn').removeClass('active color');
+    $(this).addClass('active color');
+})
