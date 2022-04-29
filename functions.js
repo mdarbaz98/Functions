@@ -20,3 +20,9 @@ $('.categoryBtn').click(function () {
         $('.categoryBtn').removeClass('active color');
     $(this).addClass('active color');
 })
+
+// adding element by loop for each heading
+var headings = $('.toc-heading').length;
+for(var i=1 ; i<= headings ; i++){
+    $('.toc-heading#h'+i).append( `<span class="span_for_toc" id="h${i}"></span>` )
+}
