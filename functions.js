@@ -26,3 +26,28 @@ var headings = $('.toc-heading').length;
 for(var i=1 ; i<= headings ; i++){
     $('.toc-heading#h'+i).append( `<span class="span_for_toc" id="h${i}"></span>` )
 }
+
+// active table of content right side content to left TOC 
+var i = 0;
+$(".blog-content-body h2").each(function () {
+  ++i;
+  $(this).addClass("toc-heading");
+  $(this).attr("id", "h" + i);
+  if (i == 1) {
+    var status = "active";
+  } else {
+    var status = "";
+  }
+  $("#tbl_of_Content").append(
+    "<li onclick=\"scrollSmoothTo('h" +
+      i +
+      "')\" class='auto-li " +
+      status +
+      "'><a>" +
+      $(this).html() +
+      "</a></li>"
+  );
+  loadBlogScrollJs();
+
+  $("#tbl_of_Content strong").contents().unwrap();
+});
